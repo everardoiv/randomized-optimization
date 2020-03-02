@@ -258,7 +258,7 @@ def run_neural_net_ga(X_train, y_train, X_test, y_test):
     grid_search_params = ({
         'max_iters': [1, 2, 4, 8, 16, 32, 64, 128],
         'learning_rate': [0.001, 0.002, 0.003],
-        'hidden_layer_sizes': [(23, 23)],
+        'hidden_layer_sizes': [(23, 23), (100,)],
         'activation': [mlrose.neural.activation.relu],
         'pop_size': [10, 100, 350, 1000, 2000],
         'mutation_prob': [0.1, 0.3, 0.5, 0.8]
@@ -347,7 +347,7 @@ def run_neural_net_sa(X_train, y_train, X_test, y_test):
     grid_search_params = ({
         'max_iters': [1, 2, 4, 8, 16, 32, 64, 128],
         'learning_rate': [0.001, 0.002, 0.003],
-        'hidden_layer_sizes': [(23, 23)],
+        'hidden_layer_sizes': [(23, 23), (100,)],
         'activation': [mlrose.neural.activation.relu],
         'schedule': param_range
     })
@@ -425,7 +425,7 @@ def run_neural_net_rhc(X_train, y_train, X_test, y_test):
     grid_search_params = ({
         'max_iters': [1, 2, 4, 8, 16, 32, 64, 128],
         'learning_rate': [0.001, 0.002, 0.003],
-        'hidden_layer_sizes': [(23, 23)],
+        'hidden_layer_sizes': [(23, 23), (100,)],
         'activation': [mlrose.neural.activation.relu]
     })
 
@@ -500,7 +500,7 @@ def run_sklearn_mlp(X_train, y_train, X_test, y_test):
     # , mlrose.neural.activation.tanh
     grid_search_params = ({
         'max_iters': [1, 2, 4, 8, 16, 32, 64, 128],
-        'hidden_layer_sizes': [(23, 23)],
+        'hidden_layer_sizes': [(23, 23), (100,)],
         'activation': [mlrose.neural.activation.relu]
     })
 
@@ -572,7 +572,7 @@ def run_sklearn_mlp(X_train, y_train, X_test, y_test):
 if __name__ == '__main__':
     # Get the experiment
     experiments = ['Credit Card', 'Poker Hand']
-    data_sets_filename = ['../data/output/credit-card-data.csv', '../data/output/sampled-poker-hand-data.csv']
+    data_sets_filename = ['credit-card-data.csv', 'sampled-poker-hand-data.csv']
     feature_label = ['default payment next month', 'Poker Hand']
     cross_validation = [5, 3]
     model = MLPClassifier(random_state=42)
